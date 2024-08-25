@@ -7,17 +7,6 @@ public class Student extends Person{
     public  static int studentCount=0;
     private String section;
     private String rollNumber;
-    //Fall , Spring
-    //fa[year],sp[year]
-    //section a-z
-
-
-
-    //1-40
-
-    //fa24-A
-    //fa24-A-10
-
     private int[] marks;
     private int markSize=0;
 
@@ -148,6 +137,15 @@ public class Student extends Person{
         return studentCount;
     }
 
+    //roll number
+
+    public String getRollNumber() {
+        return rollNumber;
+    }
+
+    public void setRollNumber(String rollNumber) {
+        this.rollNumber = rollNumber;
+    }
 
 
     //Fees Functions
