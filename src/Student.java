@@ -1,14 +1,27 @@
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student extends Person{
 
     private ArrayList<Fees> fees;
     private Fees admissionFees;
     public  static int studentCount=0;
     private String section;
+    private String rollNumber;
+    //Fall , Spring
+    //fa[year],sp[year]
+    //section a-z
+
+
+    //1-40
+
+    //fa24-A
+    //fa24-A-10
+
     private int[] marks;
     private int markSize=0;
 
+
+    //Marks functions
 
     public int getMarks(int QuizNumber) { //index
         if(QuizNumber>0 && QuizNumber<markSize)   //0<2
@@ -128,16 +141,25 @@ public class Student extends Person {
     }
 
 
+    // Total Students Count
+
     public static int getStudentCount() {
         return studentCount;
     }
 
 
 
+    //Fees Functions
 
+    //composition
     public void setFees(String month,int totalFees) {
        Fees fees=new Fees(totalFees,month);
        this.fees.add(fees);
+    }
+
+    //aggregation
+    public void setFees(Fees fees) {
+        this.fees.add(fees);
     }
 
     public void printAllFees(){
@@ -145,14 +167,6 @@ public class Student extends Person {
         for (int i = 0; i < fees.size(); i++) {
             System.out.println(fees.get(i));
         }
-    }
-
-    public String getSection() {
-        return section;
-    }
-
-    public void setSection(String section) {
-        this.section = section;
     }
 
     public String monthOfAdmission(){
@@ -182,8 +196,8 @@ public class Student extends Person {
 
     }
 
-   public void printRange(String Smonth,String Emonth){
-       boolean found=false;
+    public void printRange(String Smonth,String Emonth){
+        boolean found=false;
         for(int i=0;i<fees.size();i++){
             Fees f=fees.get(i);
             if(f.getMonth().equals(Smonth))
@@ -198,12 +212,31 @@ public class Student extends Person {
                 return;
             }
         }
-   }
+    }
+
+
+
+
+
+    //Section
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
+    }
+
+
+   //TO String
 
     @Override
     public String toString() {
         return getName()+" "+getGender();
     }
+
+    // Constructors
 
     public Student(String ID,String name, int age  , int admissionFees,String monthOfAdmission, String gender, String section, int totalQuiz) {
 
@@ -213,6 +246,8 @@ public class Student extends Person {
         this.section = section;
         marks = new int[totalQuiz];
     }
+
+
 
     public Student() {
 
@@ -226,6 +261,9 @@ public class Student extends Person {
 
 
     }
+
+
+    //Blocks
 
     {
 
